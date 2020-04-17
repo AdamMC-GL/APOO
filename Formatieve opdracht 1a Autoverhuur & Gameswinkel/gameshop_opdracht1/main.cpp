@@ -19,7 +19,6 @@ public:
 		}
 		return currentPrice;
 	}
-	
 };
 
 
@@ -64,19 +63,15 @@ public:
 			}
 		}
 		return "niet gelukt";
-		
-		
 	}
 	
 	string toString(){
-		string str = naam + " heeft een budget van €" + to_string(budget) + " en bezit de volgende games: \n";
+		string str = naam + " heeft een budget van €" + to_string(budget).substr(0,5) + " en bezit de volgende games: \n";
 		for(unsigned int i = 0; i < owned_games.size(); i++){
-			str += owned_games[i].name + ", uitgegeven in " + to_string(owned_games[i].releaseYear) + " nieuwprijs: " + to_string(owned_games[i].price) + " nu voor: €" + to_string(owned_games[i].current_price())+"\n";
+			str += owned_games[i].name + ", uitgegeven in " + to_string(owned_games[i].releaseYear) + " nieuwprijs: " + to_string(owned_games[i].price).substr(0,5) + " nu voor: €" + to_string(owned_games[i].current_price()).substr(0,5)+"\n";
 		}
 		return str;
 	}
-	
-	
 };
 
 
@@ -116,5 +111,4 @@ int main()
 	cout << p1.toString() << "\n";
 	cout << p2.toString() << "\n";
 	cout << p3.toString() << "\n";
-
 }
